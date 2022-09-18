@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/3tuchka3/if-js#readme",
   "devDependencies": {
-    "eslint": "^8.23.1",
+    "eslint": "8.22.0",
     "husky": "^8.0.1",
     "prettier": "2.7.1"
   }
