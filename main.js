@@ -29,7 +29,7 @@ for (let i = 0; i < 6; i++) {
 
 console.log(mass1);
 for (let i = 0; i < mass1.length; i++) {
-  if (mass1[i] % 2 == 0 && mass1[i] != 0) {
+  if (mass1[i] % 2 === 0 && mass1[i] !== 0) {
     console.log(mass1[i]);
   }
 }
