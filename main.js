@@ -1,35 +1,58 @@
-const user = 'John Doe';
-console.log(user);
-let student = 'Vadim';
-console.log(student);
+const x = 'qwerewq';
+console.log(x);
 
-student = user;
-console.log(student);
-
-let test = 1;
-test += '1';
-console.log(test);
-console.log(Boolean(test));
-
-const mass = [2, 3, 5, 8];
-console.log(mass);
-let n = 1;
-for (let i = 0; i < mass.length; i++) {
-  n *= mass[i];
+function palindrome(x) {
+  let n = 1;
+  for (let i = 0; i < Math.trunc(x.length / 2); i++ && x.length - n) {
+    console.log(x[i], x[x.length - n]);
+    if (x[i] !== x[x.length - n]) {
+      return false;
+    }
+    n++;
+  }
+  return true;
 }
-console.log(n);
 
-const mass1 = [2, 5, 8, 15, 0, 6, 20, 3];
-console.log(mass1);
-for (let i = 0; i < mass1.length; i++) {
-  if (mass1[i] > 5 && mass1[i] < 10) {
-    console.log(mass1[i]);
+console.log(palindrome(x));
+
+const numb1 = 10;
+const numb2 = 123;
+
+function min(x, y) {
+  if (x < y) console.log('min = ', x);
+  if (x > y) console.log('min = ', y);
+  if (x === y) console.log('x = y');
+}
+
+min(numb1, numb2);
+
+function max(x, y) {
+  if (x < y) console.log('max = ', y);
+  if (x > y) console.log('max = ', x);
+  if (x === y) console.log('x = y');
+}
+
+max(numb1, numb2);
+
+
+function array(){
+const array = [];
+
+for (let i = 0; i < 10; i++) {
+  array.push(Math.round(Math.random() * (100 - 0) + 0));
+}
+for (let i = 0; i < 10; i++) {
+  if (array[i] === 100) {
+    array[i] = array[i] / 100 + 'zerozero';
+  }
+  if (array[i] > 10 && array[i] % 10 === 0) {
+    array[i] = array[i] / 10 + 'zero';
+  }
+  if (array[i] < 10 && array[i] % 10 === 0) {
+    array[i] = 'zero';
   }
 }
-
-console.log(mass1);
-for (let i = 0; i < mass1.length; i++) {
-  if (mass1[i] % 2 === 0 && mass1[i] !== 0) {
-    console.log(mass1[i]);
-  }
+console.log(array);
 }
+
+array();
