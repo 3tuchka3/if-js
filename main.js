@@ -1,3 +1,4 @@
+/*
 const x = 'qwerewq';
 console.log(x);
 
@@ -55,4 +56,30 @@ for (let i = 0; i < 10; i++) {
 console.log(array);
 }
 
-array();
+array();*/
+function sum(a, b){
+    return a + b;
+};
+
+console.log(sum(2, 5));
+
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+function Color() {
+  let i = 0;
+  return function (event) {
+    event.target.style.color = colors[i];
+    i++;
+    if (i >= colors.length) {
+      i = 0;
+    }
+    return event;
+  };
+}
+
+text1.addEventListener('click', Color());
+text2.addEventListener('click', Color());
+text3.addEventListener('click', Color());
