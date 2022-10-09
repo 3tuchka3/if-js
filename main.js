@@ -1,85 +1,72 @@
-/*
-const x = 'qwerewq';
-console.log(x);
+const date = '2020-11-27';
+console.log(date) ;
 
-function palindrome(x) {
-  let n = 1;
-  for (let i = 0; i < Math.trunc(x.length / 2); i++ && x.length - n) {
-    console.log(x[i], x[x.length - n]);
-    if (x[i] !== x[x.length - n]) {
-      return false;
+function NewDate(date) {
+  date.replace(/-/g,'.');
+  let newDate = date.replace(/-/gi, '.');
+  newDate = newDate.split('.');
+  newDate = newDate.reverse();
+   newDate = newDate.join('.');
+   return newDate;
+}
+console.log(NewDate(date)) ;
+
+
+const info = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+console.log(info);
+
+function search(string) {
+  const array = [];
+  for (let i = 0; i < info.length; i++) {
+    let searchString = `${info[i].country} ${info[i].city} ${info[i].hotel}`;
+    if (searchString.includes(string)) {
+      array.push(searchString);
     }
-    n++;
   }
-  return true;
+  return array;
 }
 
-console.log(palindrome(x));
+console.log(search('Spa'));
 
-const numb1 = 10;
-const numb2 = 123;
-
-function min(x, y) {
-  if (x < y) console.log('min = ', x);
-  if (x > y) console.log('min = ', y);
-  if (x === y) console.log('x = y');
-}
-
-min(numb1, numb2);
-
-function max(x, y) {
-  if (x < y) console.log('max = ', y);
-  if (x > y) console.log('max = ', x);
-  if (x === y) console.log('x = y');
-}
-
-max(numb1, numb2);
-
-
-function array(){
-const array = [];
-
-for (let i = 0; i < 10; i++) {
-  array.push(Math.round(Math.random() * (100 - 0) + 0));
-}
-for (let i = 0; i < 10; i++) {
-  if (array[i] === 100) {
-    array[i] = array[i] / 100 + 'zerozero';
-  }
-  if (array[i] > 10 && array[i] % 10 === 0) {
-    array[i] = array[i] / 10 + 'zero';
-  }
-  if (array[i] < 10 && array[i] % 10 === 0) {
-    array[i] = 'zero';
-  }
-}
-console.log(array);
-}
-
-array();*/
-function sum(a, b){
-    return a + b;
-};
-
-console.log(sum(2, 5));
-
-const text1 = document.getElementById('text1');
-const text2 = document.getElementById('text2');
-const text3 = document.getElementById('text3');
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-
-function Color() {
-  let i = 0;
-  return function (event) {
-    event.target.style.color = colors[i];
-    i++;
-    if (i >= colors.length) {
-      i = 0;
-    }
-    return event;
-  };
-}
-
-text1.addEventListener('click', Color());
-text2.addEventListener('click', Color());
-text3.addEventListener('click', Color());
