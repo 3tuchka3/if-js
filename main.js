@@ -1,85 +1,321 @@
 /*
-const x = 'qwerewq';
-console.log(x);
+const date = '2020-11-27';
+console.log(date) ;
 
-function palindrome(x) {
-  let n = 1;
-  for (let i = 0; i < Math.trunc(x.length / 2); i++ && x.length - n) {
-    console.log(x[i], x[x.length - n]);
-    if (x[i] !== x[x.length - n]) {
-      return false;
+function NewDate(date) {
+  date.replace(/-/g,'.');
+  let newDate = date.replace(/-/gi, '.');
+  newDate = newDate.split('.');
+  newDate = newDate.reverse();
+   newDate = newDate.join('.');
+   return newDate;
+}
+console.log(NewDate(date)) ;
+
+
+const info = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+console.log(info);
+
+function search(string) {
+  const array = [];
+  for (let i = 0; i < info.length; i++) {
+    let searchString = `${info[i].country} ${info[i].city} ${info[i].hotel}`;
+    if (searchString.includes(string)) {
+      array.push(searchString);
     }
-    n++;
   }
-  return true;
+  return array;
 }
 
-console.log(palindrome(x));
+console.log(search('Spa'));
 
-const numb1 = 10;
-const numb2 = 123;
+*/
 
-function min(x, y) {
-  if (x < y) console.log('min = ', x);
-  if (x > y) console.log('min = ', y);
-  if (x === y) console.log('x = y');
+
+
+/*
+lesson-6*/
+
+function palindrome(str) {
+  return str === str.split('').reverse().join('');
 }
 
-min(numb1, numb2);
 
-function max(x, y) {
-  if (x < y) console.log('max = ', y);
-  if (x > y) console.log('max = ', x);
-  if (x === y) console.log('x = y');
-}
-
-max(numb1, numb2);
+console.log(palindrome('привирп'));
 
 
-function array(){
-const array = [];
 
-for (let i = 0; i < 10; i++) {
-  array.push(Math.round(Math.random() * (100 - 0) + 0));
-}
-for (let i = 0; i < 10; i++) {
-  if (array[i] === 100) {
-    array[i] = array[i] / 100 + 'zerozero';
+
+const info = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+console.log(info)
+function search(str) {
+  function filterFunc(obj) {
+    return (
+        obj.country.includes(str) ||
+        obj.city.includes(str) ||
+        obj.hotel.includes(str)
+    );
   }
-  if (array[i] > 10 && array[i] % 10 === 0) {
-    array[i] = array[i] / 10 + 'zero';
-  }
-  if (array[i] < 10 && array[i] % 10 === 0) {
-    array[i] = 'zero';
-  }
+  const newArr = info.filter(filterFunc);
+  console.log(newArr);
+
 }
-console.log(array);
-}
+search('Ho');
 
-array();*/
-function sum(a, b){
-    return a + b;
-};
 
-console.log(sum(2, 5));
 
-const text1 = document.getElementById('text1');
-const text2 = document.getElementById('text2');
-const text3 = document.getElementById('text3');
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-function Color() {
-  let i = 0;
-  return function (event) {
-    event.target.style.color = colors[i];
-    i++;
-    if (i >= colors.length) {
-      i = 0;
-    }
-    return event;
-  };
-}
 
-text1.addEventListener('click', Color());
-text2.addEventListener('click', Color());
-text3.addEventListener('click', Color());
+const hotels = [
+  {
+    name: 'Hotel Leopold',
+    city: 'Saint Petersburg',
+    country: 'Russia',
+  },
+  {
+    name: 'Apartment Sunshine',
+    city: 'Santa Cruz de Tenerife',
+    country: 'Spain',
+  },
+  {
+    name: 'Villa Kunerad',
+    city: 'Vysokie Tatry',
+    country: 'Slowakia',
+  },
+  {
+    name: 'Hostel Friendship',
+    city: 'Berlin',
+    country: 'Germany',
+  },
+  {
+    name: 'Radisson Blu Hotel',
+    city: 'Kyiv',
+    country: 'Ukraine',
+  },
+  {
+    name: 'Paradise Hotel',
+    city: 'Guadalupe',
+    country: 'Mexico',
+  },
+  {
+    name: 'Hotel Grindewald',
+    city: 'Interlaken',
+    country: 'Switzerland',
+  },
+  {
+    name: 'The Andaman Resort',
+    city: 'Port Dickson',
+    country: 'Malaysia',
+  },
+  {
+    name: 'Virgin Hotel',
+    city: 'Chicago',
+    country: 'USA',
+  },
+  {
+    name: 'Grand Beach Resort',
+    city: 'Dubai',
+    country: 'United Arab Emirates',
+  },
+  {
+    name: 'Shilla Stay',
+    city: 'Seoul',
+    country: 'South Korea',
+  },
+  {
+    name: 'San Firenze Suites',
+    city: 'Florence',
+    country: 'Italy',
+  },
+  {
+    name: 'The Andaman Resort',
+    city: 'Port Dickson',
+    country: 'Malaysia',
+  },
+  {
+    name: 'Black Penny Villas',
+    city: 'BTDC, Nuca Dua',
+    country: 'Indonesia',
+  },
+  {
+    name: 'Koko Hotel',
+    city: 'Tokyo',
+    country: 'Japan',
+  },
+  {
+    name: 'Ramada Plaza',
+    city: 'Istanbul',
+    country: 'Turkey',
+  },
+  {
+    name: 'Waikiki Resort Hotel',
+    city: 'Hawaii',
+    country: 'USA',
+  },
+  {
+    name: 'Puro Hotel',
+    city: 'Krakow',
+    country: 'Poland',
+  },
+  {
+    name: 'Asma Suites',
+    city: 'Santorini',
+    country: 'Greece',
+  },
+  {
+    name: 'Cityden Apartments',
+    city: 'Amsterdam',
+    country: 'Netherlands',
+  },
+  {
+    name: 'Mandarin Oriental',
+    city: 'Miami',
+    country: 'USA',
+  },
+  {
+    name: 'Concept Terrace Hotel',
+    city: 'Rome',
+    country: 'Italy',
+  },
+  {
+    name: 'Ponta Mar Hotel',
+    city: 'Fortaleza',
+    country: 'Brazil',
+  },
+  {
+    name: 'Four Seasons Hotel',
+    city: 'Sydney',
+    country: 'Australia',
+  },
+  {
+    name: 'Le Meridien',
+    city: 'Nice',
+    country: 'France',
+  },
+  {
+    name: 'Apart Neptun',
+    city: 'Gdansk',
+    country: 'Poland',
+  },
+  {
+    name: 'Lux Isla',
+    city: 'Ibiza',
+    country: 'Spain',
+  },
+  {
+    name: 'Nox Hostel',
+    city: 'London',
+    country: 'UK',
+  },
+  {
+    name: 'Leonardo Vienna',
+    city: 'Vienna',
+    country: 'Austria',
+  },
+  {
+    name: 'Adagio Aparthotel',
+    city: 'Edinburgh',
+    country: 'UK',
+  },
+  {
+    name: 'Steigenberger Hotel',
+    city: 'Hamburg',
+    country: 'Germany',
+  },
+];
+
+
+console.log(hotels);
+
+const hotelsByCountries = {};
+
+hotels.map((item) => {
+  if (hotelsByCountries[item.country]) {
+    hotelsByCountries[item.country].push(item.city);
+  } else hotelsByCountries[item.country] = [item.city];
+});
+console.log(hotelsByCountries);
+
