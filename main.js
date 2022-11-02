@@ -42,6 +42,7 @@ function deepEqual(object1, object2) {
       if (result === false) return false;
     }
 
+
     if (object1[prop] !== object2[prop]) return false;
 
     return true;
@@ -52,6 +53,8 @@ console.log(deepEqual(obj1, obj2));
 console.log(deepEqual(obj1, obj3));
 
 /*
+
+
 function palindrome(str) {
   return str === str.split('').reverse().join('');
 }
@@ -284,4 +287,7 @@ hotels.map((item) => {
 console.log(hotelsByCountries);
 
 
+
 */
+
+
