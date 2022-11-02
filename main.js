@@ -1,93 +1,60 @@
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+console.log(obj1);
+console.log(obj2);
 
-const date = '2020-11-27';
-console.log(date) ;
-
-function NewDate(date) {
-  date.replace(/-/g,'.');
-  let newDate = date.replace(/-/gi, '.');
-  newDate = newDate.split('.');
-  newDate = newDate.reverse();
-   newDate = newDate.join('.');
-   return newDate;
-}
-console.log(NewDate(date)) ;
-
-
-
-const info = [
-  {
-    country: 'Russia',
-    city: 'Saint Petersburg',
-    hotel: 'Hotel Leopold',
-  },
-  {
-    country: 'Spain',
-    city: 'Santa Cruz de Tenerife',
-    hotel: 'Apartment Sunshine',
-  },
-  {
-    country: 'Slowakia',
-    city: 'Vysokie Tatry',
-    hotel: 'Villa Kunerad',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hostel Friendship',
-  },
-  {
-    country: 'Indonesia',
-    city: 'Bali',
-    hotel: 'Ubud Bali Resort&SPA',
-  },
-  {
-    country: 'Netherlands',
-    city: 'Rotterdam',
-    hotel: 'King Kong Hostel',
-  },
-  {
-    country: 'Marocco',
-    city: 'Ourika',
-    hotel: 'Rokoko Hotel',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hotel Rehberge Berlin Mitte',
-  },
-];
-
-console.log(info);
-
-function search(string) {
-  const array = [];
-  for (let i = 0; i < info.length; i++) {
-    let searchString = `${info[i].country} ${info[i].city} ${info[i].hotel}`;
-    if (searchString.includes(string)) {
-      array.push(searchString);
+function deepEqual(object1, object2) {
+  for (let prop in object1) {
+    if (prop in object2 === false) return false;
+    if (typeof object1[prop] === 'object' && typeof object2[prop] === 'object')
+    {
+      const result = deepEqual(object1[prop], object2[prop]);
+      if (result === false) return false;
     }
+
+    if (object1[prop] !== object2[prop]) return false;
+
+    return true;
   }
-  return array;
 }
 
-console.log(search('Spa'));
-
-*/
-
-
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
 
 /*
-lesson-6*/
-
 function palindrome(str) {
   return str === str.split('').reverse().join('');
 }
 
-
 console.log(palindrome('привирп'));
-
-
-
 
 const info = [
   {
@@ -131,24 +98,19 @@ const info = [
     hotel: 'Hotel Rehberge Berlin Mitte',
   },
 ];
-console.log(info)
+console.log(info);
 function search(str) {
   function filterFunc(obj) {
     return (
-        obj.country.includes(str) ||
-        obj.city.includes(str) ||
-        obj.hotel.includes(str)
+      obj.country.includes(str) ||
+      obj.city.includes(str) ||
+      obj.hotel.includes(str)
     );
   }
   const newArr = info.filter(filterFunc);
   console.log(newArr);
-
 }
 search('Ho');
-
-
-
-
 
 const hotels = [
   {
@@ -308,7 +270,6 @@ const hotels = [
   },
 ];
 
-
 console.log(hotels);
 
 const hotelsByCountries = {};
@@ -319,64 +280,6 @@ hotels.map((item) => {
   } else hotelsByCountries[item.country] = [item.city];
 });
 console.log(hotelsByCountries);
-=======
 
 
-const info = [
-  {
-    country: 'Russia',
-    city: 'Saint Petersburg',
-    hotel: 'Hotel Leopold',
-  },
-  {
-    country: 'Spain',
-    city: 'Santa Cruz de Tenerife',
-    hotel: 'Apartment Sunshine',
-  },
-  {
-    country: 'Slowakia',
-    city: 'Vysokie Tatry',
-    hotel: 'Villa Kunerad',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hostel Friendship',
-  },
-  {
-    country: 'Indonesia',
-    city: 'Bali',
-    hotel: 'Ubud Bali Resort&SPA',
-  },
-  {
-    country: 'Netherlands',
-    city: 'Rotterdam',
-    hotel: 'King Kong Hostel',
-  },
-  {
-    country: 'Marocco',
-    city: 'Ourika',
-    hotel: 'Rokoko Hotel',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hotel Rehberge Berlin Mitte',
-  },
-];
-
-console.log(info);
-
-function search(string) {
-  const array = [];
-  for (let i = 0; i < info.length; i++) {
-    let searchString = `${info[i].country} ${info[i].city} ${info[i].hotel}`;
-    if (searchString.includes(string)) {
-      array.push(searchString);
-    }
-  }
-  return array;
-}
-
-console.log(search('Spa'));
-
+*/
