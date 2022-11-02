@@ -32,10 +32,12 @@ console.log(obj1);
 console.log(obj2);
 
 function deepEqual(object1, object2) {
-  for (let prop in object1) {
+  for (const prop in object1) {
     if (prop in object2 === false) return false;
-    if (typeof object1[prop] === 'object' && typeof object2[prop] === 'object')
-    {
+    if (
+      typeof object1[prop] === 'object' &&
+      typeof object2[prop] === 'object'
+    ) {
       const result = deepEqual(object1[prop], object2[prop]);
       if (result === false) return false;
     }
