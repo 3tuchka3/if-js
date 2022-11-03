@@ -1,13 +1,65 @@
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+console.log(obj1);
+console.log(obj2);
+
+function deepEqual(object1, object2) {
+  for (const prop in object1) {
+    if (prop in object2 === false) return false;
+    if (
+      typeof object1[prop] === 'object' &&
+      typeof object2[prop] === 'object'
+    ) {
+      const result = deepEqual(object1[prop], object2[prop]);
+      if (result === false) return false;
+    }
+
+
+    if (object1[prop] !== object2[prop]) return false;
+
+    return true;
+  }
+}
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
+
+/*
+
 
 function palindrome(str) {
   return str === str.split('').reverse().join('');
 }
 
-
 console.log(palindrome('привирп'));
-
-
-
 
 const info = [
   {
@@ -51,24 +103,19 @@ const info = [
     hotel: 'Hotel Rehberge Berlin Mitte',
   },
 ];
-console.log(info)
+console.log(info);
 function search(str) {
   function filterFunc(obj) {
     return (
-        obj.country.includes(str) ||
-        obj.city.includes(str) ||
-        obj.hotel.includes(str)
+      obj.country.includes(str) ||
+      obj.city.includes(str) ||
+      obj.hotel.includes(str)
     );
   }
   const newArr = info.filter(filterFunc);
   console.log(newArr);
-
 }
 search('Ho');
-
-
-
-
 
 const hotels = [
   {
@@ -228,7 +275,6 @@ const hotels = [
   },
 ];
 
-
 console.log(hotels);
 
 const hotelsByCountries = {};
@@ -239,3 +285,9 @@ hotels.map((item) => {
   } else hotelsByCountries[item.country] = [item.city];
 });
 console.log(hotelsByCountries);
+
+
+
+*/
+
+
